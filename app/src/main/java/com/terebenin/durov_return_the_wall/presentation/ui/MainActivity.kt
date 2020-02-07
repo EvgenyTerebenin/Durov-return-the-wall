@@ -1,8 +1,8 @@
-package com.terebenin.durov_return_the_wall
+package com.terebenin.durov_return_the_wall.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.terebenin.durov_return_the_wall.ui.main.MainFragment
+import com.terebenin.durov_return_the_wall.R
 
 class MainActivity : AppCompatActivity() {
 
