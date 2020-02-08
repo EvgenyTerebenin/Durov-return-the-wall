@@ -1,4 +1,4 @@
-package com.terebenin.durov_return_the_wall.ui.main
+package com.terebenin.durov_return_the_wall.presentation.ui
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.terebenin.durov_return_the_wall.R
+import com.terebenin.durov_return_the_wall.mvvm.MainViewModel
 
 class MainFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() =
+            MainFragment()
     }
 
     private lateinit var viewModel: MainViewModel
@@ -28,5 +30,4 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

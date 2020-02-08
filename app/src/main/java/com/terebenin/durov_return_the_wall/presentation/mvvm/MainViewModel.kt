@@ -1,4 +1,4 @@
-package com.terebenin.durov_return_the_wall.ui.main
+package com.terebenin.durov_return_the_wall.mvvm
 
 import androidx.lifecycle.ViewModel
 
