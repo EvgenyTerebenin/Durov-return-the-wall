@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Durov, return the wall</string>
+    <string name="title_authorization">Авторизация</string>
 </resources>
