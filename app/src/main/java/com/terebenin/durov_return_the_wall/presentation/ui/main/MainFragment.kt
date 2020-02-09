@@ -1,4 +1,4 @@
-package com.terebenin.durov_return_the_wall.presentation.ui
+package com.terebenin.durov_return_the_wall.presentation.ui.main
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
