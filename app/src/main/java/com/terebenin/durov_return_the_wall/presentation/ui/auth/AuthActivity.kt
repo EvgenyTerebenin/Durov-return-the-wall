@@ -1,7 +1,6 @@
 package com.terebenin.durov_return_the_wall.presentation.ui.auth
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
@@ -15,8 +14,8 @@ class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
 
         val viewModel: AuthViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
