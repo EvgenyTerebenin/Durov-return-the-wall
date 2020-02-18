@@ -11,11 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.terebenin.durov_return_the_wall.R
+import com.terebenin.durov_return_the_wall.data.datasource.local.Constants.APP_ID
 import com.terebenin.durov_return_the_wall.databinding.ActivityAuthBinding
 import com.terebenin.durov_return_the_wall.presentation.mvvm.auth.AuthViewModel
 
 class AuthActivity : AppCompatActivity() {
 
+    private val REDIRECT_URI = "https://oauth.vk.com/blank.html"
+    private val AUTHORIZE_URI = "https://oauth.vk.com/authorize"
+    private val SCOPE = "friends"
+    private val API_VERSION = "5.103"
     private lateinit var binding: ActivityAuthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,9 +49,7 @@ class AuthActivity : AppCompatActivity() {
 
         clearWebViewBeforeLoading(binding)
 
-//        binding.webView.loadUrl("https://oauth.vk.com/authorize?client_id=7312625&display=page&redirect_uri=https://oauth.vk.com/blank.html")
-
-        binding.webView.loadUrl("https://oauth.vk.com/authorize?client_id=7312625&&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=code&v=5.103")
+        binding.webView.loadUrl("${AUTHORIZE_URI}?client_id=${APP_ID}&display=page&redirect_uri=${REDIRECT_URI}&scope={$SCOPE}&response_type=code&v=${API_VERSION}")
 
         binding.executePendingBindings()
     }
