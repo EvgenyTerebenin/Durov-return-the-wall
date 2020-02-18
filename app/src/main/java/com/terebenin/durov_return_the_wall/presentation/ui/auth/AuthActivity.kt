@@ -1,7 +1,11 @@
 package com.terebenin.durov_return_the_wall.presentation.ui.auth
 
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
+import android.webkit.WebResourceRequest
 import android.webkit.WebSettings
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -21,6 +25,17 @@ class AuthActivity : AppCompatActivity() {
         val viewModel: AuthViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
 
         binding.webView.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    view?.loadUrl(request?.url.toString())
+                    Log.d("TAG_URL", request?.url.toString())
+                }
+                return false
+
+            }
         }
 
         val webSettings = binding.webView.settings
@@ -29,7 +44,9 @@ class AuthActivity : AppCompatActivity() {
 
         clearWebViewBeforeLoading(binding)
 
-        binding.webView.loadUrl("https://oauth.vk.com/authorize?client_id=7312625&display=page&redirect_uri=https://oauth.vk.com/blank.html")
+//        binding.webView.loadUrl("https://oauth.vk.com/authorize?client_id=7312625&display=page&redirect_uri=https://oauth.vk.com/blank.html")
+
+        binding.webView.loadUrl("https://oauth.vk.com/authorize?client_id=7312625&&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=code&v=5.103")
 
         binding.executePendingBindings()
     }
