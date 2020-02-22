@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <data />
+    <data>
+
+        <variable
+            name="authViewModel"
+            type="com.terebenin.durov_return_the_wall.presentation.mvvm.auth.AuthViewModel" />
+    </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
