@@ -24,6 +24,7 @@ class Prefs(
         }
         set(value) {
             authPrefs.edit().putString(ACCESS_TOKEN, gson.toJson(value)).apply()
+
         }
 
 
