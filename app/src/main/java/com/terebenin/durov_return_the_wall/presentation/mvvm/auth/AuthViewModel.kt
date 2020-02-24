@@ -3,7 +3,7 @@ package com.terebenin.durov_return_the_wall.presentation.mvvm.auth
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.terebenin.durov_return_the_wall.data.AccessToken
-import com.terebenin.durov_return_the_wall.presentation.ui.global.Application
+import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication
 
 class AuthViewModel : ViewModel() {
 
@@ -30,6 +30,6 @@ class AuthViewModel : ViewModel() {
         val userId = url
             .substringAfter("user_id=")
         accessToken.value = AccessToken(token, expiresIn, userId)
-        Application.accessToken = token
+        VkApplication.accessToken = token
     }
 }

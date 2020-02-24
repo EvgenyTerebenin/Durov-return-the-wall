@@ -13,16 +13,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.data.AccessToken
-import com.terebenin.durov_return_the_wall.data.datasource.storage.Prefs
 import com.terebenin.durov_return_the_wall.databinding.ActivityAuthBinding
 import com.terebenin.durov_return_the_wall.presentation.mvvm.auth.AuthViewModel
-import com.terebenin.durov_return_the_wall.presentation.ui.global.Application.Companion.gson
+import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication.Companion.prefs
 import com.terebenin.durov_return_the_wall.presentation.ui.main.MainActivity
 
 class AuthActivity : AppCompatActivity() {
 
-
-    private val prefs: Prefs = Prefs(this, gson)
     private lateinit var binding: ActivityAuthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

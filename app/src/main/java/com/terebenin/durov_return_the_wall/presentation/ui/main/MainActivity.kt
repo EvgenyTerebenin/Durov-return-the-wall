@@ -4,13 +4,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.terebenin.durov_return_the_wall.R
-import com.terebenin.durov_return_the_wall.data.datasource.storage.Prefs
-import com.terebenin.durov_return_the_wall.presentation.ui.global.Application
-import com.terebenin.durov_return_the_wall.presentation.ui.global.Application.Companion.accessToken
+import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication.Companion.prefs
 
 class MainActivity : AppCompatActivity() {
-
-    private val prefs: Prefs = Prefs(this, Application.gson)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +20,7 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
 
-        Toast.makeText(this, accessToken, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, prefs.accessToken.token, Toast.LENGTH_SHORT).show()
     }
 
 }
