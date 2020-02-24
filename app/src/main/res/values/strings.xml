@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Durov_return_the_wall</string>
+    <string name="app_name">Дуров, верни стену</string>
+    <string name="title_authorization">Авторизация</string>
+    <string name="title_feed">Новости</string>
 </resources>
