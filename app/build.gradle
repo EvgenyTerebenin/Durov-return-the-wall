@@ -16,7 +16,16 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "REDIRECT_URI", "\"https://oauth.vk.com/blank.html\"")
+        buildConfigField("String", "AUTHORIZE_URI", "\"https://oauth.vk.com/authorize\"")
+        buildConfigField("String", "SCOPE", "\"offline\"")
+        buildConfigField("String", "API_VERSION", "\"5.103\"")
+        buildConfigField("String", "RESPONSE_TYPE", "\"token\"")
+        buildConfigField("String", "DISPLAY_TYPE", "\"page\"")
+        buildConfigField("String", "APP_ID", "\"7312625\"")
     }
+
     buildTypes {
         release {
             minifyEnabled false
