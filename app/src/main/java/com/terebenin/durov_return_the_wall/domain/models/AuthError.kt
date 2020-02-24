@@ -1,3 +1,3 @@
-package com.terebenin.durov_return_the_wall.data
+package com.terebenin.durov_return_the_wall.domain.models
 
 data class AuthError(var error: String?, var description: String?)

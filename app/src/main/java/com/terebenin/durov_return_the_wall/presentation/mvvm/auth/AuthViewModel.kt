@@ -3,8 +3,8 @@ package com.terebenin.durov_return_the_wall.presentation.mvvm.auth
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.terebenin.durov_return_the_wall.BuildConfig.*
-import com.terebenin.durov_return_the_wall.data.AccessToken
-import com.terebenin.durov_return_the_wall.data.AuthError
+import com.terebenin.durov_return_the_wall.domain.models.AccessToken
+import com.terebenin.durov_return_the_wall.domain.models.AuthError
 import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication
 
 class AuthViewModel : ViewModel() {
@@ -30,7 +30,12 @@ class AuthViewModel : ViewModel() {
             .substringBefore("&")
         val userId = url
             .substringAfter("user_id=")
-        accessToken.value = AccessToken(token, expiresIn, userId)
+        accessToken.value =
+            AccessToken(
+                token,
+                expiresIn,
+                userId
+            )
         saveAccessTokenToPrefs(accessToken.value!!)
     }
 
@@ -43,6 +48,10 @@ class AuthViewModel : ViewModel() {
             .substringAfter("#error=")
             .substringBefore("&")
         val errorDescription = url.substringAfter("&error_description=").replace("+", " ")
-        authError.value = AuthError(error, errorDescription)
+        authError.value =
+            AuthError(
+                error,
+                errorDescription
+            )
     }
 }
