@@ -11,7 +11,13 @@ class AuthViewModel : ViewModel() {
     val accessToken = MutableLiveData<AccessToken>()
 
     val authUrl =
-        "${AUTHORIZE_URI}?client_id=${APP_ID}&display=${DISPLAY_TYPE}&redirect_uri=${REDIRECT_URI}&scope=${SCOPE}&response_type=${RESPONSE_TYPE}&v=${API_VERSION}"
+        "$AUTHORIZE_URI" +
+                "?client_id=${APP_ID}" +
+                "&display=${DISPLAY_TYPE}" +
+                "&redirect_uri=${REDIRECT_URI}" +
+                "&scope=${SCOPE}" +
+                "&response_type=${RESPONSE_TYPE}" +
+                "&v=${API_VERSION}"
 
     fun setAccessToken(url: String) {
         val token = url
