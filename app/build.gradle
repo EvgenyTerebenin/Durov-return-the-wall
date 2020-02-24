@@ -24,6 +24,8 @@ android {
         buildConfigField("String", "RESPONSE_TYPE", "\"token\"")
         buildConfigField("String", "DISPLAY_TYPE", "\"page\"")
         buildConfigField("String", "APP_ID", "\"7312625\"")
+        buildConfigField("String", "BASE_API_URL", "\"https://api.vk.com/\"")
+
     }
 
     buildTypes {
