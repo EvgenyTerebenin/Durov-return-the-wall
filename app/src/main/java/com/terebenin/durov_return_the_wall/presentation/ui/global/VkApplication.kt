@@ -22,8 +22,6 @@ class VkApplication : Application() {
         super.onCreate()
         setContext(this)
         gson = GsonBuilder()
-//            .registerTypeAdapter(BindableDate::class.java, GsonBindableDateAdapter())
-//            .registerTypeAdapter(Uri::class.java, GsonUriAdapter())
             .create()
         prefs = Prefs(context, gson)
     }
