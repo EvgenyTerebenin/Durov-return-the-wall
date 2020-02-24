@@ -11,7 +11,6 @@ class VkApplication : Application() {
     companion object {
         private lateinit var context: Context
         lateinit var gson: Gson
-        lateinit var accessToken: String
         lateinit var prefs: Prefs
 
         fun setContext(con: Context) {
