@@ -50,7 +50,7 @@ class AuthActivity : AppCompatActivity() {
             ): Boolean {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     view?.loadUrl(request?.url.toString())
-                    binding.authViewModel.currentUrl.value = request?.url.toString()
+                    binding.authViewModel?.currentUrl?.value = request?.url.toString()
                 }
                 return false
 
@@ -60,7 +60,7 @@ class AuthActivity : AppCompatActivity() {
 
     private fun observeViewModelChanges() {
 
-        binding.authViewModel.currentUrl.observe(this, Observer {
+        binding.authViewModel?.currentUrl?.observe(this, Observer {
             if (it.contains(ACCESS_TOKEN)) {
                 binding.authViewModel?.setAccessToken(it)
             }
