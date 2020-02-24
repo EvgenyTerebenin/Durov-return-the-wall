@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".presentation.ui.main.MainActivity"
+            android:label="@string/title_feed"
             android:screenOrientation="portrait" />
         <activity
             android:name=".presentation.ui.auth.AuthActivity"
@@ -20,7 +21,6 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
