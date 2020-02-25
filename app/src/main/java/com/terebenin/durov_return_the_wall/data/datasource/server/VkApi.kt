@@ -1,5 +1,6 @@
 package com.terebenin.durov_return_the_wall.data.datasource.server
 
+import com.terebenin.durov_return_the_wall.data.models.newsfeedResponse.NewsfeedResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

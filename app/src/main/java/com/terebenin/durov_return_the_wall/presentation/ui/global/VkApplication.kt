@@ -4,10 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.terebenin.durov_return_the_wall.BuildConfig
 import com.terebenin.durov_return_the_wall.data.datasource.storage.Prefs
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 
 class VkApplication : Application() {
 
