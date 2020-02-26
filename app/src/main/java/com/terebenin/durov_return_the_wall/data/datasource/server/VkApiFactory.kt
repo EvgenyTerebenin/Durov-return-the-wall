@@ -2,6 +2,7 @@ package com.terebenin.durov_return_the_wall.data.datasource.server
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.terebenin.durov_return_the_wall.BuildConfig
+import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication.Companion.prefs
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -14,7 +15,8 @@ object VkApiFactory {
     private val authInterceptor = Interceptor { chain ->
         val newUrl = chain.request().url
             .newBuilder()
-//FIXME      .addQueryParameter("access_token", "здесь должен быть токен")
+            .addQueryParameter("v=", BuildConfig.API_VERSION)
+            .addQueryParameter("access_token", prefs.accessToken.token)
             .build()
 
         val newRequest = chain.request()
