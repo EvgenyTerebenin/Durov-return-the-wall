@@ -3,8 +3,8 @@ package com.terebenin.durov_return_the_wall.presentation.mvvm.auth
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.terebenin.durov_return_the_wall.BuildConfig.*
-import com.terebenin.durov_return_the_wall.domain.models.AccessToken
-import com.terebenin.durov_return_the_wall.domain.models.AuthError
+import com.terebenin.durov_return_the_wall.domain.global.models.AccessToken
+import com.terebenin.durov_return_the_wall.domain.global.models.AuthError
 import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication
 
 class AuthViewModel : ViewModel() {

@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.terebenin.durov_return_the_wall.R
-import com.terebenin.durov_return_the_wall.mvvm.MainViewModel
+import com.terebenin.durov_return_the_wall.mvvm.NewsfeedViewModel
 
-class MainFragment : Fragment() {
+class NewsfeedFragment : Fragment() {
 
     companion object {
         fun newInstance() =
-            MainFragment()
+            NewsfeedFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: NewsfeedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +27,7 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(NewsfeedViewModel::class.java)
         // TODO: Use the ViewModel
     }
 }
