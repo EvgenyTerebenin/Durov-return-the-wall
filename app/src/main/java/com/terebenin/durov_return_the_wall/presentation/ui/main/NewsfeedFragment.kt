@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.terebenin.durov_return_the_wall.R
+import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
 import com.terebenin.durov_return_the_wall.mvvm.NewsfeedViewModel
+import com.terebenin.durov_return_the_wall.presentation.mvvm.main.NewsfeedVMFactory
 
 class NewsfeedFragment : Fragment() {
 
@@ -17,6 +19,7 @@ class NewsfeedFragment : Fragment() {
     }
 
     private lateinit var viewModel: NewsfeedViewModel
+    private lateinit var interactor: NewsfeedInteractor
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +30,9 @@ class NewsfeedFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(NewsfeedViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProvider(
+            this,
+            NewsfeedVMFactory(interactor)
+        ).get(NewsfeedViewModel::class.java)
     }
 }
