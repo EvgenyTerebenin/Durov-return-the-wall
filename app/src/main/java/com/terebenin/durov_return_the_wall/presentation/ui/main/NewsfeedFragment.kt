@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.terebenin.durov_return_the_wall.R
+import com.terebenin.durov_return_the_wall.data.datasource.server.VkApiFactory
+import com.terebenin.durov_return_the_wall.data.repositories.NewsfeedRepositoryImpl
+import com.terebenin.durov_return_the_wall.domain.global.repositories.NewsfeedRepository
 import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
 import com.terebenin.durov_return_the_wall.mvvm.NewsfeedViewModel
 import com.terebenin.durov_return_the_wall.presentation.mvvm.main.NewsfeedVMFactory
@@ -18,8 +21,9 @@ class NewsfeedFragment : Fragment() {
             NewsfeedFragment()
     }
 
+    private var repository: NewsfeedRepository = NewsfeedRepositoryImpl(VkApiFactory.vkApi)
+    private var interactor: NewsfeedInteractor = NewsfeedInteractor(repository)
     private lateinit var viewModel: NewsfeedViewModel
-    private lateinit var interactor: NewsfeedInteractor
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
