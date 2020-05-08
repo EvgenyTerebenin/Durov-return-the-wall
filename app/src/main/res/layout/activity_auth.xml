@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-
     <data>
-
         <variable
             name="authViewModel"
             type="com.terebenin.durov_return_the_wall.presentation.mvvm.auth.AuthViewModel" />
