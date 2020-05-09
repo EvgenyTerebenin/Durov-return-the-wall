@@ -6,7 +6,7 @@ import retrofit2.http.GET
 
 interface VkApi {
 
-    //TODO() удалить перед PR    https://api.vk.com/method/friends.getOnline?v=5.52&access_token=
+    //TODO() удалить перед PR    https://api.vk.com/method/METHOD_NAME?PARAMETERS&access_token=ACCESS_TOKEN&v=V
 
     companion object {
         const val METHOD_PATH = "method"

@@ -15,8 +15,8 @@ object VkApiFactory {
     private val authInterceptor = Interceptor { chain ->
         val newUrl = chain.request().url
             .newBuilder()
-            .addQueryParameter("v=", BuildConfig.API_VERSION)
             .addQueryParameter("access_token", prefs.accessToken.token)
+            .addQueryParameter("v", BuildConfig.API_VERSION)
             .build()
 
         val newRequest = chain.request()
