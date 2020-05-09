@@ -1,4 +1,4 @@
-package com.terebenin.durov_return_the_wall.data.datasource.server
+package com.terebenin.durov_return_the_wall.data.datasource.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.terebenin.durov_return_the_wall.BuildConfig
@@ -30,11 +30,9 @@ object VkApiFactory {
     private fun initOkHttpClient(): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder().apply {
             addInterceptor(authInterceptor)
-            if (BuildConfig.DEBUG) {
-                val logInterceptor = HttpLoggingInterceptor()
-                logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-                addInterceptor(logInterceptor)
-            }
+            val logInterceptor = HttpLoggingInterceptor()
+            logInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+            addInterceptor(logInterceptor)
         }
         return okHttpClientBuilder.build()
     }

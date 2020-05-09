@@ -4,7 +4,7 @@ import com.terebenin.durov_return_the_wall.domain.global.repositories.NewsfeedRe
 
 class NewsfeedInteractor(private val repository: NewsfeedRepository) {
 
-    fun getNewsFeed() = repository.getNewsfeed()
+    suspend fun getNewsFeed() = repository.getNewsfeed()
 
 
 }

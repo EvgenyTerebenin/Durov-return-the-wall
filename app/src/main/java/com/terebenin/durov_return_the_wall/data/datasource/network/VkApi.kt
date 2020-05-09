@@ -1,8 +1,8 @@
-package com.terebenin.durov_return_the_wall.data.datasource.server
+package com.terebenin.durov_return_the_wall.data.datasource.network
 
 import com.terebenin.durov_return_the_wall.data.models.newsfeedResponse.NewsfeedResponse
+import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface VkApi {
 
@@ -13,8 +13,5 @@ interface VkApi {
     }
 
     @GET("$METHOD_PATH/newsfeed.get")
-    fun getNewsfeed(
-        @Query("v") apiVersion: String,
-        @Query("access_token") accessToken: String
-    ): NewsfeedResponse
+    suspend fun getNewsfeed(): Response<NewsfeedResponse>
 }

@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.terebenin.durov_return_the_wall.R
-import com.terebenin.durov_return_the_wall.data.datasource.server.VkApiFactory
+import com.terebenin.durov_return_the_wall.data.datasource.network.VkApiFactory
 import com.terebenin.durov_return_the_wall.data.repositories.NewsfeedRepositoryImpl
 import com.terebenin.durov_return_the_wall.databinding.MainFragmentBinding
 import com.terebenin.durov_return_the_wall.domain.global.repositories.NewsfeedRepository
