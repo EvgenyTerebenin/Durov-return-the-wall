@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.data.datasource.network.VkApiFactory
 import com.terebenin.durov_return_the_wall.data.repositories.NewsfeedRepositoryImpl
@@ -28,6 +29,7 @@ class NewsfeedFragment : Fragment() {
     private var interactor: NewsfeedInteractor = NewsfeedInteractor(repository)
     private lateinit var binding: MainFragmentBinding
     private lateinit var viewModel: NewsfeedViewModel
+    private lateinit var newsfeedAdapter: NewsfeedAdapter
 
 
     override fun onCreateView(
@@ -56,13 +58,22 @@ class NewsfeedFragment : Fragment() {
             vm = viewModel
             executePendingBindings()
         }
+        initAdapter(viewModel)
         observeViewModelChanges(binding)
     }
 
     private fun observeViewModelChanges(binding: MainFragmentBinding) {
-        binding.vm.newsfeed.observe(viewLifecycleOwner, Observer {
-            //TODO            adapter.submitList(it)
+        binding.vm?.newsfeed?.observe(viewLifecycleOwner, Observer {
+            newsfeedAdapter.submitList(it.response?.items)
         })
+    }
+
+    private fun initAdapter(viewModel: NewsfeedViewModel) {
+        newsfeedAdapter = NewsfeedAdapter(viewModel)
+        binding.recyclerViewNewsfeed.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = newsfeedAdapter
+        }
     }
 
 }

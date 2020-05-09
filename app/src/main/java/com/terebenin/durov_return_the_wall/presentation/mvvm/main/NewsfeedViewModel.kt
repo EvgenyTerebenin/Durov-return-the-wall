@@ -3,11 +3,13 @@ package com.terebenin.durov_return_the_wall.presentation.mvvm.main
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.terebenin.durov_return_the_wall.data.models.newsfeedResponse.ItemsItem
 import com.terebenin.durov_return_the_wall.data.models.newsfeedResponse.NewsfeedResponse
 import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
+import com.terebenin.durov_return_the_wall.presentation.ui.main.NewsfeedEventHandler
 import kotlinx.coroutines.launch
 
-class NewsfeedViewModel(interactor: NewsfeedInteractor) : ViewModel() {
+class NewsfeedViewModel(interactor: NewsfeedInteractor) : ViewModel(), NewsfeedEventHandler {
 
     val newsfeed = MutableLiveData<NewsfeedResponse>()
 
@@ -18,6 +20,10 @@ class NewsfeedViewModel(interactor: NewsfeedInteractor) : ViewModel() {
                 newsfeed.value = it
             }
         }
+    }
+
+    override fun onClickNewsfeedItem(item: ItemsItem) {
+        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
