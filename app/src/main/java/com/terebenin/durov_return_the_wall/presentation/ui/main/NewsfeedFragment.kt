@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -65,6 +66,11 @@ class NewsfeedFragment : Fragment() {
     private fun observeViewModelChanges(binding: MainFragmentBinding) {
         binding.vm?.newsfeed?.observe(viewLifecycleOwner, Observer {
             newsfeedAdapter.submitList(it.response?.items)
+        })
+
+        binding.vm?.itemClickEvent?.observe(viewLifecycleOwner, Observer {
+            //TODO
+            Toast.makeText(context, "клик на пост с ID $it", Toast.LENGTH_SHORT).show()
         })
     }
 

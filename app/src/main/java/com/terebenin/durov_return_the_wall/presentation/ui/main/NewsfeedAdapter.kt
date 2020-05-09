@@ -39,7 +39,7 @@ class NewsfeedAdapter(private val viewmodel: NewsfeedViewModel) :
 
     class DiffCallback : DiffUtil.ItemCallback<ItemsItem>() {
         override fun areItemsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
-            return oldItem.sourceId == newItem.sourceId
+            return oldItem.postId == newItem.postId
         }
 
         override fun areContentsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {

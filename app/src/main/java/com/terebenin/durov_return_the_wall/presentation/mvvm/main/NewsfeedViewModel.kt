@@ -10,7 +10,7 @@ import com.terebenin.durov_return_the_wall.presentation.ui.main.NewsfeedEventHan
 import kotlinx.coroutines.launch
 
 class NewsfeedViewModel(interactor: NewsfeedInteractor) : ViewModel(), NewsfeedEventHandler {
-
+    val itemClickEvent = MutableLiveData<Int>()
     val newsfeed = MutableLiveData<NewsfeedResponse>()
 
     init {
@@ -23,7 +23,7 @@ class NewsfeedViewModel(interactor: NewsfeedInteractor) : ViewModel(), NewsfeedE
     }
 
     override fun onClickNewsfeedItem(item: ItemsItem) {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        itemClickEvent.value = item.postId
     }
 
 }
