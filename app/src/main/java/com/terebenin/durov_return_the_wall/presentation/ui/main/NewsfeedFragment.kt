@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.data.datasource.network.VkApiFactory
@@ -55,5 +56,13 @@ class NewsfeedFragment : Fragment() {
             vm = viewModel
             executePendingBindings()
         }
+        observeViewModelChanges(binding)
     }
+
+    private fun observeViewModelChanges(binding: MainFragmentBinding) {
+        binding.vm.newsfeed.observe(viewLifecycleOwner, Observer {
+            //TODO            adapter.submitList(it)
+        })
+    }
+
 }

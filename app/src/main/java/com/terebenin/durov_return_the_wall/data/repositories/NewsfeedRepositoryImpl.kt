@@ -4,16 +4,13 @@ import com.terebenin.durov_return_the_wall.data.datasource.network.BaseRepositor
 import com.terebenin.durov_return_the_wall.data.datasource.network.VkApi
 import com.terebenin.durov_return_the_wall.data.models.newsfeedResponse.NewsfeedResponse
 import com.terebenin.durov_return_the_wall.domain.global.repositories.NewsfeedRepository
-import retrofit2.await
 
 class NewsfeedRepositoryImpl(private val vkApi: VkApi) : NewsfeedRepository, BaseRepository() {
 
-    override suspend fun getNewsfeed() : NewsfeedResponse? {
-        val newsfeedResponse = safeApiCall(
+    override suspend fun getNewsfeed(): NewsfeedResponse? {
+        return safeApiCall(
             call = { vkApi.getNewsfeed() },
             errorMessage = "Error fetching newsfeed"
         )
-
-        return newsfeedResponse
     }
 }
