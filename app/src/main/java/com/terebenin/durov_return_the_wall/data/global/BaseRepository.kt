@@ -1,4 +1,4 @@
-package com.terebenin.durov_return_the_wall.data.datasource.network
+package com.terebenin.durov_return_the_wall.data.global
 
 import android.util.Log
 import retrofit2.Response
