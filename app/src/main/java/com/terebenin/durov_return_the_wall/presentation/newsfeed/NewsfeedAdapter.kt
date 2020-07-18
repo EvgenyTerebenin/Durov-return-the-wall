@@ -1,17 +1,22 @@
 package com.terebenin.durov_return_the_wall.presentation.newsfeed
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
+import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostAuthorType
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel
+import kotlinx.android.synthetic.main.item_newsfeed.view.*
 
 class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
     ListAdapter<PostItemDomainModel, NewsfeedAdapter.NewsfeedViewHolder>(
         DiffCallback()
     ) {
+    private lateinit var context: Context
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsfeedViewHolder {
@@ -24,10 +29,29 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
 
     override fun onBindViewHolder(holder: NewsfeedViewHolder, position: Int) {
         holder.bind(getItem(position))
+        holder.binding.item
+        context = holder.binding.textViewPostOwner.context
+        holder.itemView.text_view_post_owner.text = getPostOwnerName(holder.binding.item)
+    }
+
+    private fun getPostOwnerName(item: PostItemDomainModel?): String {
+        return when (item?.postType) {
+            PostAuthorType.User -> {
+                context.getString(
+                    R.string.text_user_name,
+                    item.profile?.firstName,
+                    item.profile?.lastName
+                )
+            }
+            PostAuthorType.Group -> {
+                item.group?.name ?: ""
+            }
+            null -> ""
+        }
     }
 
     class NewsfeedViewHolder(
-        private val binding: ItemNewsfeedBinding,
+        val binding: ItemNewsfeedBinding,
         private val viewModel: NewsfeedViewModel
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(model: PostItemDomainModel) {

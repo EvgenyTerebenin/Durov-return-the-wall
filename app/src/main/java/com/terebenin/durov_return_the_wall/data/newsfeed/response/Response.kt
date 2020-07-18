@@ -2,6 +2,7 @@ package com.terebenin.durov_return_the_wall.data.newsfeed.response
 
 import com.google.gson.annotations.SerializedName
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.*
+import kotlin.math.abs
 
 
 data class Response(
@@ -53,7 +54,7 @@ private fun getGroupBySourceId(groups: List<Groups?>?, sourceId: Int?): GroupDom
     var domainGroupItem: GroupDomainModel? = null
     groups?.let {
         for (group in groups) {
-            if (group!!.id == sourceId!!)
+            if (group?.id?.let { it1 -> abs(it1) } == sourceId!!)
                 domainGroupItem = GroupDomainModel(
                     group.id,
                     group.name,

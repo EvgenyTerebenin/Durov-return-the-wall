@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.terebenin.durov_return_the_wall.data.newsfeed.response.Item
 import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.NewsfeedResponseDomainModel
+import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel
 import com.terebenin.durov_return_the_wall.presentation.global.SingleLiveEvent
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -46,7 +47,7 @@ class NewsfeedViewModel : ViewModel(),
         }
     }
 
-    override fun onClickNewsfeedItem(item: Item) {
+    override fun onClickNewsfeedItem(item: PostItemDomainModel) {
         itemClickEvent.value = item.postId
     }
 

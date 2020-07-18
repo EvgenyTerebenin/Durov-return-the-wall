@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='Durov_return_the_wall'
+rootProject.name = 'Durov_return_the_wall'

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="item"
             type="com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel" />
