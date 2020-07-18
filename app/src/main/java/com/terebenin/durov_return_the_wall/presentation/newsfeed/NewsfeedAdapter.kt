@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostAuthorType
@@ -32,6 +33,25 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         holder.binding.item
         context = holder.binding.textViewPostOwner.context
         holder.itemView.text_view_post_owner.text = getPostOwnerName(holder.binding.item)
+        Glide.with(
+            holder.itemView.image_view_post_owner_avatar
+        )
+            .load(getAvatarUrl(holder.binding.item))
+            .centerCrop()
+//            .placeholder()
+            .into(holder.itemView.image_view_post_owner_avatar)
+    }
+
+    private fun getAvatarUrl(item: PostItemDomainModel?): String {
+        return when (item?.postType) {
+            PostAuthorType.User -> {
+                item.profile?.photo50 ?: ""
+            }
+            PostAuthorType.Group -> {
+                item.group?.photo50 ?: ""
+            }
+            null -> ""
+        }
     }
 
     private fun getPostOwnerName(item: PostItemDomainModel?): String {
