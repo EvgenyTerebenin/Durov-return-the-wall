@@ -7,11 +7,11 @@
 
         <variable
             name="item"
-            type="com.terebenin.durov_return_the_wall.data.models.newsfeedResponse.ItemsItem" />
+            type="com.terebenin.durov_return_the_wall.data.newsfeed.response.ItemsItem" />
 
         <variable
             name="eventHandler"
-            type="com.terebenin.durov_return_the_wall.presentation.ui.main.NewsfeedEventHandler" />
+            type="com.terebenin.durov_return_the_wall.presentation.newsfeed.NewsfeedEventHandler" />
     </data>
 
     <androidx.cardview.widget.CardView

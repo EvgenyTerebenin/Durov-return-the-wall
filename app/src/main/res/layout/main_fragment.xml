@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
             name="vm"
-            type="com.terebenin.durov_return_the_wall.presentation.mvvm.main.NewsfeedViewModel" />
+            type="com.terebenin.durov_return_the_wall.presentation.newsfeed.NewsfeedViewModel" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="match_parent"
-        tools:context=".presentation.ui.main.NewsfeedFragment">
+        tools:context=".presentation.newsfeed.NewsfeedFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view_newsfeed"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{() -> vm.getNewsfeed()}"
+            app:refreshing="@{vm.isLoading}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_newsfeed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </FrameLayout>
 </layout>

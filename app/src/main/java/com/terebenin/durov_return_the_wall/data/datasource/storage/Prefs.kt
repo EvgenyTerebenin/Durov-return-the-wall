@@ -3,7 +3,7 @@ package com.terebenin.durov_return_the_wall.data.datasource.storage
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.terebenin.durov_return_the_wall.domain.global.models.AccessToken
+import com.terebenin.durov_return_the_wall.domain.global.AccessToken
 
 class Prefs(
     private val context: Context,

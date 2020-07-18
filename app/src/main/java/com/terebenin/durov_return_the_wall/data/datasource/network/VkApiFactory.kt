@@ -2,7 +2,7 @@ package com.terebenin.durov_return_the_wall.data.datasource.network
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.terebenin.durov_return_the_wall.BuildConfig
-import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication.Companion.prefs
+import com.terebenin.durov_return_the_wall.presentation.global.VkApplication.Companion.prefs
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
