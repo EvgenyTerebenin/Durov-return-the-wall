@@ -28,7 +28,8 @@ class AuthActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
         binding.lifecycleOwner = this
         val viewModel: AuthViewModel = ViewModelProvider(this).get(
-            AuthViewModel::class.java)
+            AuthViewModel::class.java
+        )
         binding.authViewModel = viewModel
         observeViewModelChanges()
         setupWebView()

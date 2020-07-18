@@ -3,7 +3,6 @@ package com.terebenin.durov_return_the_wall.presentation.global
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.terebenin.durov_return_the_wall.BuildConfig
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.presentation.global.VkApplication.Companion.prefs
 import com.terebenin.durov_return_the_wall.presentation.newsfeed.NewsfeedFragment

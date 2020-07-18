@@ -8,14 +8,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.terebenin.durov_return_the_wall.R
-import com.terebenin.durov_return_the_wall.data.datasource.network.VkApiFactory
-import com.terebenin.durov_return_the_wall.data.newsfeed.NewsfeedRepositoryImpl
 import com.terebenin.durov_return_the_wall.databinding.MainFragmentBinding
-import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedRepository
-import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
 
 class NewsfeedFragment : Fragment() {
 
@@ -24,11 +19,6 @@ class NewsfeedFragment : Fragment() {
             NewsfeedFragment()
     }
 
-    private var repository: NewsfeedRepository =
-        NewsfeedRepositoryImpl(
-            VkApiFactory.vkApi
-        )
-    private var interactor: NewsfeedInteractor = NewsfeedInteractor(repository)
     private lateinit var binding: MainFragmentBinding
     private lateinit var viewModel: NewsfeedViewModel
     private lateinit var newsfeedAdapter: NewsfeedAdapter
@@ -50,12 +40,6 @@ class NewsfeedFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(
-            this,
-            NewsfeedVMFactory(
-                interactor
-            )
-        ).get(NewsfeedViewModel::class.java)
 
         binding.apply {
             lifecycleOwner = this@NewsfeedFragment

@@ -16,9 +16,9 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        app:cardCornerRadius="8dp"
+        android:layout_height="wrap_content"
         android:layout_margin="4dp"
-        android:layout_height="wrap_content">
+        app:cardCornerRadius="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -49,8 +49,8 @@
                 android:id="@+id/text_view_post_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{item.date.toString()}"
                 android:hint="Дата поста"
+                android:text="@{item.date.toString()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/text_view_post_owner"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_post_owner" />
@@ -60,8 +60,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@{item.text}"
                 android:maxLines="10"
+                android:text="@{item.text}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/image_view_post_owner_avatar" />
