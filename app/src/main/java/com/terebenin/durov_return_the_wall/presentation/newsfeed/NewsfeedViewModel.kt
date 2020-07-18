@@ -28,7 +28,7 @@ class NewsfeedViewModel : ViewModel(),
     }
 
 
-    private fun getNewsfeed() {
+    public fun getNewsfeed() {
         job?.cancel()
         job = viewModelScope.launch {
             try {
