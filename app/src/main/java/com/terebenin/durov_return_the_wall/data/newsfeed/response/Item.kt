@@ -38,6 +38,9 @@ data class Item(
     @field:SerializedName("post_type")
     val postType: String? = null,
 
+    /**
+     * Идентификатор источника новости (положительный — новость пользователя, отрицательный — новость группы);
+     */
     @field:SerializedName("source_id")
     val sourceId: Int? = null,
 
