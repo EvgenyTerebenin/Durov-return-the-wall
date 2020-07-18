@@ -3,7 +3,7 @@ package com.terebenin.durov_return_the_wall.data.newsfeed.response
 import com.google.gson.annotations.SerializedName
 
 
-data class ImageItem(
+data class Image(
 
     @field:SerializedName("width")
     val width: Int? = null,

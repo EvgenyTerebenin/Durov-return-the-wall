@@ -3,7 +3,7 @@ package com.terebenin.durov_return_the_wall.data.newsfeed.response
 import com.google.gson.annotations.SerializedName
 
 
-data class ProfilesItem(
+data class Profile(
 
     @field:SerializedName("can_access_closed")
     val canAccessClosed: Boolean? = null,

@@ -9,11 +9,11 @@ data class Response(
     val nextFrom: String? = null,
 
     @field:SerializedName("profiles")
-    val profiles: List<ProfilesItem?>? = null,
+    val profiles: List<Profile?>? = null,
 
     @field:SerializedName("groups")
-    val groups: List<GroupsItem?>? = null,
+    val groups: List<Groups?>? = null,
 
     @field:SerializedName("items")
-    val items: List<ItemsItem?>? = null
+    val items: List<Item?>? = null
 )

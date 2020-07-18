@@ -9,7 +9,7 @@ data class Photo(
     val date: Int? = null,
 
     @field:SerializedName("sizes")
-    val sizes: List<SizesItem?>? = null,
+    val sizes: List<Sizes?>? = null,
 
     @field:SerializedName("user_id")
     val userId: Int? = null,

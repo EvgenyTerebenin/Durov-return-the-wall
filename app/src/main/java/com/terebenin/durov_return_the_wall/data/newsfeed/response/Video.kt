@@ -9,7 +9,7 @@ data class Video(
     val date: Int? = null,
 
     @field:SerializedName("image")
-    val image: List<ImageItem?>? = null,
+    val image: List<Image?>? = null,
 
     @field:SerializedName("comments")
     val comments: Int? = null,

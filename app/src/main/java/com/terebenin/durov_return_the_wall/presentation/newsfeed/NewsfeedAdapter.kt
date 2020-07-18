@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.terebenin.durov_return_the_wall.data.newsfeed.response.ItemsItem
+import com.terebenin.durov_return_the_wall.data.newsfeed.response.Item
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
 
 class NewsfeedAdapter(private val viewmodel: NewsfeedViewModel) :
-    ListAdapter<ItemsItem, NewsfeedAdapter.NewsfeedViewHolder>(
+    ListAdapter<Item, NewsfeedAdapter.NewsfeedViewHolder>(
         DiffCallback()
     ) {
 
@@ -30,7 +30,7 @@ class NewsfeedAdapter(private val viewmodel: NewsfeedViewModel) :
         private val binding: ItemNewsfeedBinding,
         private val viewmodel: NewsfeedViewModel
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(model: ItemsItem) {
+        fun bind(model: Item) {
             binding.eventHandler = viewmodel
             binding.item = model
             binding.executePendingBindings()
@@ -38,12 +38,12 @@ class NewsfeedAdapter(private val viewmodel: NewsfeedViewModel) :
 
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<ItemsItem>() {
-        override fun areItemsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
+    class DiffCallback : DiffUtil.ItemCallback<Item>() {
+        override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
             return oldItem.postId == newItem.postId
         }
 
-        override fun areContentsTheSame(oldItem: ItemsItem, newItem: ItemsItem): Boolean {
+        override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
             return oldItem == newItem
         }
     }

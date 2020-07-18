@@ -3,7 +3,7 @@ package com.terebenin.durov_return_the_wall.presentation.newsfeed
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.terebenin.durov_return_the_wall.data.newsfeed.response.ItemsItem
+import com.terebenin.durov_return_the_wall.data.newsfeed.response.Item
 import com.terebenin.durov_return_the_wall.data.newsfeed.response.NewsfeedResponse
 import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
 import com.terebenin.durov_return_the_wall.presentation.global.SingleLiveEvent
@@ -45,7 +45,7 @@ class NewsfeedViewModel : ViewModel(),
         }
     }
 
-    override fun onClickNewsfeedItem(item: ItemsItem) {
+    override fun onClickNewsfeedItem(item: Item) {
         itemClickEvent.value = item.postId
     }
 

@@ -3,13 +3,13 @@ package com.terebenin.durov_return_the_wall.data.newsfeed.response
 import com.google.gson.annotations.SerializedName
 
 
-data class ItemsItem(
+data class Item(
 
     @field:SerializedName("date")
     val date: Int? = null,
 
     @field:SerializedName("attachments")
-    val attachments: List<AttachmentsItem?>? = null,
+    val attachments: List<Attachments?>? = null,
 
     @field:SerializedName("comments")
     val comments: Comments? = null,

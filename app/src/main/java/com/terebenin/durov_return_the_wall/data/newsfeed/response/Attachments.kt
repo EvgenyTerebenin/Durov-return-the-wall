@@ -4,7 +4,7 @@ package com.terebenin.durov_return_the_wall.data.newsfeed.response
 import com.google.gson.annotations.SerializedName
 
 
-data class AttachmentsItem(
+data class Attachments(
 
     @field:SerializedName("photo")
     val photo: Photo? = null,
