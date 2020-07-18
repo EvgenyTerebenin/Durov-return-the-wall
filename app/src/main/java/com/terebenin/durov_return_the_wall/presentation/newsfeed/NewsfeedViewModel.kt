@@ -4,8 +4,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.terebenin.durov_return_the_wall.data.newsfeed.response.Item
-import com.terebenin.durov_return_the_wall.data.newsfeed.response.NewsfeedResponse
 import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
+import com.terebenin.durov_return_the_wall.domain.newsfeed.model.NewsfeedResponseDomainModel
 import com.terebenin.durov_return_the_wall.presentation.global.SingleLiveEvent
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -18,23 +18,24 @@ class NewsfeedViewModel : ViewModel(),
         SingleLiveEvent<Int>()
     val eventHttpException =
         SingleLiveEvent<HttpException>()
-    val newsfeed = MutableLiveData<NewsfeedResponse>()
+
+    val newsfeedResponse = MutableLiveData<NewsfeedResponseDomainModel>()
     val isLoading = MutableLiveData<Boolean>()
-    var job: Job? = null
+    private var job: Job? = null
 
     init {
         getNewsfeed()
     }
 
 
-    fun getNewsfeed() {
+    private fun getNewsfeed() {
         job?.cancel()
         job = viewModelScope.launch {
             try {
                 isLoading.value = true
                 val result = interactor.getNewsFeed()
                 result?.let {
-                    newsfeed.value = it
+                    newsfeedResponse.value = it
                     isLoading.value = false
                 }
             } catch (e: Exception) {

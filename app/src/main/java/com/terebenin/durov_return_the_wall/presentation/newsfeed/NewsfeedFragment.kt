@@ -22,7 +22,7 @@ class NewsfeedFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
     private lateinit var newsfeedAdapter: NewsfeedAdapter
-    val viewModel: NewsfeedViewModel by viewModels()
+    private val viewModel: NewsfeedViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -52,8 +52,8 @@ class NewsfeedFragment : Fragment() {
     }
 
     private fun observeViewModelChanges(binding: MainFragmentBinding) {
-        binding.vm?.newsfeed?.observe(viewLifecycleOwner, Observer {
-            newsfeedAdapter.submitList(it.response?.items)
+        binding.vm?.newsfeedResponse?.observe(viewLifecycleOwner, Observer {
+            newsfeedAdapter.submitList(it.items)
         })
 
         binding.vm?.itemClickEvent?.observe(viewLifecycleOwner, Observer {

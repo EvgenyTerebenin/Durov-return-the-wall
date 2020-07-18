@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
-            type="com.terebenin.durov_return_the_wall.data.newsfeed.response.Item" />
+            type="com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel" />
 
         <variable
             name="eventHandler"
@@ -98,7 +97,7 @@
                 android:id="@+id/text_view_likes_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{item.likes.count.toString}"
+                android:text="@{item.likes.count.toString()}"
                 app:layout_constraintBottom_toBottomOf="@+id/image_view_post_likes"
                 app:layout_constraintEnd_toEndOf="@+id/text_view_post_text"
                 app:layout_constraintTop_toTopOf="@+id/image_view_post_likes" />

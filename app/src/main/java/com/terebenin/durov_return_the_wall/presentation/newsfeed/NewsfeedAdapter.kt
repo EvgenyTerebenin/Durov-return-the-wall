@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.terebenin.durov_return_the_wall.data.newsfeed.response.Item
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
+import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel
 
-class NewsfeedAdapter(private val viewmodel: NewsfeedViewModel) :
-    ListAdapter<Item, NewsfeedAdapter.NewsfeedViewHolder>(
+class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
+    ListAdapter<PostItemDomainModel, NewsfeedAdapter.NewsfeedViewHolder>(
         DiffCallback()
     ) {
 
@@ -18,7 +18,7 @@ class NewsfeedAdapter(private val viewmodel: NewsfeedViewModel) :
         return NewsfeedViewHolder(
             ItemNewsfeedBinding.inflate(
                 LayoutInflater.from(parent.context), parent, false
-            ), viewmodel
+            ), viewModel
         )
     }
 
@@ -28,22 +28,28 @@ class NewsfeedAdapter(private val viewmodel: NewsfeedViewModel) :
 
     class NewsfeedViewHolder(
         private val binding: ItemNewsfeedBinding,
-        private val viewmodel: NewsfeedViewModel
+        private val viewModel: NewsfeedViewModel
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(model: Item) {
-            binding.eventHandler = viewmodel
+        fun bind(model: PostItemDomainModel) {
+            binding.eventHandler = viewModel
             binding.item = model
             binding.executePendingBindings()
         }
 
     }
 
-    class DiffCallback : DiffUtil.ItemCallback<Item>() {
-        override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
+    class DiffCallback : DiffUtil.ItemCallback<PostItemDomainModel>() {
+        override fun areItemsTheSame(
+            oldItem: PostItemDomainModel,
+            newItem: PostItemDomainModel
+        ): Boolean {
             return oldItem.postId == newItem.postId
         }
 
-        override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
+        override fun areContentsTheSame(
+            oldItem: PostItemDomainModel,
+            newItem: PostItemDomainModel
+        ): Boolean {
             return oldItem == newItem
         }
     }
