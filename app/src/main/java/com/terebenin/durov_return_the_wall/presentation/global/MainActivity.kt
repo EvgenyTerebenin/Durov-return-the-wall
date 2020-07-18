@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //FIXME удалить код перед релизом
-        if (BuildConfig.DEBUG) {
+        if (com.terebenin.durov_return_the_wall.BuildConfig.DEBUG) {
             Toast.makeText(this, prefs.accessToken.token, Toast.LENGTH_SHORT).show()
         }
     }

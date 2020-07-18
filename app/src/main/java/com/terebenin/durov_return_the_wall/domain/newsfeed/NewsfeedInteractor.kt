@@ -8,6 +8,7 @@ class NewsfeedInteractor() {
         NewsfeedRepositoryImpl(
             VkApiFactory.vkApi
         )
+
     suspend fun getNewsFeed() = repository.getNewsfeed()
 
 }

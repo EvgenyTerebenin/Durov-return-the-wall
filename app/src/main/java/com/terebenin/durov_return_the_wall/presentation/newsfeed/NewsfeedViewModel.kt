@@ -13,7 +13,7 @@ import retrofit2.HttpException
 
 class NewsfeedViewModel : ViewModel(),
     NewsfeedEventHandler {
-    private val interactor: NewsfeedInteractor()
+    private val interactor = NewsfeedInteractor()
     val itemClickEvent =
         SingleLiveEvent<Int>()
     val eventHttpException =
