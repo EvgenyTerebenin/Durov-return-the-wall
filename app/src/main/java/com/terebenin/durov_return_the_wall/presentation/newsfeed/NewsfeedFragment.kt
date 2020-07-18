@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.terebenin.durov_return_the_wall.R
@@ -20,8 +21,8 @@ class NewsfeedFragment : Fragment() {
     }
 
     private lateinit var binding: MainFragmentBinding
-    private lateinit var viewModel: NewsfeedViewModel
     private lateinit var newsfeedAdapter: NewsfeedAdapter
+    val viewModel: NewsfeedViewModel by viewModels()
 
 
     override fun onCreateView(
