@@ -3,7 +3,6 @@ package com.terebenin.durov_return_the_wall.presentation.newsfeed
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.terebenin.durov_return_the_wall.data.newsfeed.response.Item
 import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.NewsfeedResponseDomainModel
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel

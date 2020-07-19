@@ -54,7 +54,7 @@ private fun getGroupBySourceId(groups: List<Groups?>?, sourceId: Int?): GroupDom
     var domainGroupItem: GroupDomainModel? = null
     groups?.let {
         for (group in groups) {
-            if (group?.id?.let { it1 -> abs(it1) } == sourceId!!)
+            if (group?.id == abs(sourceId!!))
                 domainGroupItem = GroupDomainModel(
                     group.id,
                     group.name,
