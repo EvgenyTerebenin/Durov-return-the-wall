@@ -3,7 +3,7 @@ package com.terebenin.durov_return_the_wall.data.newsfeed.response
 import com.google.gson.annotations.SerializedName
 
 
-data class Groups(
+data class Group(
 
     @field:SerializedName("photo_50")
     val photo50: String? = null,

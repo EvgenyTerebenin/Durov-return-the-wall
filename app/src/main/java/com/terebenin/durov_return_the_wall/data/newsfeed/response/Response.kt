@@ -17,7 +17,7 @@ data class Response(
     val profiles: List<Profile?>? = null,
 
     @field:SerializedName("groups")
-    val groups: List<Groups?>? = null,
+    val groups: List<Group?>? = null,
 
     @field:SerializedName("items")
     val items: List<Item?>? = null
@@ -58,7 +58,7 @@ private fun getPostAuthorType(sourceId: Int?): PostAuthorType? {
     return if (sourceId!! > 0) PostAuthorType.User else PostAuthorType.Group
 }
 
-private fun getGroupBySourceId(groups: List<Groups?>?, sourceId: Int?): GroupDomainModel? {
+private fun getGroupBySourceId(groups: List<Group?>?, sourceId: Int?): GroupDomainModel? {
     var domainGroupItem: GroupDomainModel? = null
     groups?.let {
         for (group in groups) {
