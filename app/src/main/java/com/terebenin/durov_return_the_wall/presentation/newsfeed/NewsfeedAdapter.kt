@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
 import com.terebenin.durov_return_the_wall.domain.global.toDateTimeString
@@ -20,6 +21,7 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         DiffCallback()
     ) {
     private lateinit var context: Context
+    private val imageViewDoubleHeight: Int = 96
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsfeedViewHolder {
@@ -47,6 +49,7 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         )
             .load(getAvatarUrl(holder.binding.item))
             .centerCrop()
+            .transform(RoundedCorners(imageViewDoubleHeight))
             //            .placeholder()
             .into(holder.itemView.image_view_post_owner_avatar)
     }
@@ -54,10 +57,10 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
     private fun getAvatarUrl(item: PostItemDomainModel?): String {
         return when (item?.postType) {
             PostAuthorType.User -> {
-                item.profile?.photo50 ?: ""
+                item.profile?.photo100 ?: ""
             }
             PostAuthorType.Group -> {
-                item.group?.photo50 ?: ""
+                item.group?.photo100 ?: ""
             }
             null -> ""
         }

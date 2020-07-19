@@ -48,7 +48,7 @@ fun createDomainPostItemModel(response: Response, item: Item?): PostItemDomainMo
     )
 }
 
-private fun convertUnixTimeToZonedDateTime(unixTime: Int?): ZonedDateTime {
+private fun convertUnixTimeToZonedDateTime(unixTime: Long?): ZonedDateTime {
     var i: Instant = Instant.ofEpochSecond(unixTime!!.toLong())
     return ZonedDateTime.ofInstant(i, ZoneId.systemDefault())
 }
@@ -66,7 +66,7 @@ private fun getGroupBySourceId(groups: List<Groups?>?, sourceId: Int?): GroupDom
                 domainGroupItem = GroupDomainModel(
                     group.id,
                     group.name,
-                    group.photo50
+                    group.photo100
                 )
         }
     }
@@ -82,7 +82,7 @@ private fun getProfileBySourceId(profiles: List<Profile?>?, sourceId: Int?): Pro
                     profile.id,
                     profile.firstName,
                     profile.lastName,
-                    profile.photo50
+                    profile.photo100
                 )
         }
     }

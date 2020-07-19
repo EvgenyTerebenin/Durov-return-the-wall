@@ -7,5 +7,5 @@ import kotlinx.android.parcel.Parcelize
 data class GroupDomainModel(
     val id: Int? = null,
     val name: String? = null,
-    val photo50: String? = null
+    val photo100: String? = null
 ) : Parcelable

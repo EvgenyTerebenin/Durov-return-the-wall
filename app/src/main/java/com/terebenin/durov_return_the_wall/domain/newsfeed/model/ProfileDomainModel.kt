@@ -8,5 +8,5 @@ data class ProfileDomainModel(
     val id: Int? = null,
     val firstName: String? = null,
     val lastName: String? = null,
-    val photo50: String? = null
+    val photo100: String? = null
 ) : Parcelable
