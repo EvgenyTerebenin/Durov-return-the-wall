@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class Item(
 
     @field:SerializedName("date")
-    val date: Int? = null,
+    val date: Long? = null,
 
     @field:SerializedName("attachments")
     val attachments: List<Attachments?>? = null,
