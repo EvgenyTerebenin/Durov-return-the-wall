@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
+import com.terebenin.durov_return_the_wall.domain.global.toDateTimeString
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostAuthorType
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel
-import com.terebenin.durov_return_the_wall.presentation.global.TImeUtils
 import kotlinx.android.synthetic.main.item_newsfeed.view.*
 
 
@@ -38,7 +38,7 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         loadAvatar(holder)
 //        setDate()
         holder.itemView.text_view_post_date.text =
-            TImeUtils.dateTimeString(holder.binding.item?.date!!)
+            holder.binding.item?.date!!.toDateTimeString()
     }
 
     private fun loadAvatar(holder: NewsfeedViewHolder) {
