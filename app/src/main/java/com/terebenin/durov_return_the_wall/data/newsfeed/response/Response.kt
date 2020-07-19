@@ -2,6 +2,9 @@ package com.terebenin.durov_return_the_wall.data.newsfeed.response
 
 import com.google.gson.annotations.SerializedName
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.*
+import org.threeten.bp.Instant
+import org.threeten.bp.ZoneId
+import org.threeten.bp.ZonedDateTime
 import kotlin.math.abs
 
 
@@ -34,7 +37,7 @@ internal fun Response.toDomainModel(): NewsfeedResponseDomainModel {
 fun createDomainPostItemModel(response: Response, item: Item?): PostItemDomainModel {
     return PostItemDomainModel(
         item?.sourceId,
-        item?.date,
+        convertUnixTimeToZonedDateTime(item?.date),
         item?.postId,
         item?.text,
         item?.views,
@@ -43,6 +46,11 @@ fun createDomainPostItemModel(response: Response, item: Item?): PostItemDomainMo
         getGroupBySourceId(response.groups, item?.sourceId),
         getPostAuthorType(item?.sourceId)
     )
+}
+
+private fun convertUnixTimeToZonedDateTime(unixTime: Int?): ZonedDateTime {
+    var i: Instant = Instant.ofEpochSecond(unixTime!!.toLong())
+    return ZonedDateTime.ofInstant(i, ZoneId.systemDefault())
 }
 
 

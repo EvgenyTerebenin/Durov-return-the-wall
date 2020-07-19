@@ -50,7 +50,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:hint="Дата поста"
-                android:text="@{item.date.toString()}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/text_view_post_owner"
                 app:layout_constraintTop_toBottomOf="@+id/text_view_post_owner" />
@@ -59,7 +58,7 @@
                 android:id="@+id/text_view_post_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:maxLines="10"
                 android:text="@{item.text}"
                 app:layout_constraintEnd_toEndOf="parent"

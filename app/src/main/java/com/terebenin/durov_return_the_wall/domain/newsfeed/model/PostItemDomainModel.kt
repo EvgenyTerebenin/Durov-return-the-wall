@@ -4,13 +4,14 @@ import android.os.Parcelable
 import com.terebenin.durov_return_the_wall.data.newsfeed.response.Likes
 import com.terebenin.durov_return_the_wall.data.newsfeed.response.Views
 import kotlinx.android.parcel.Parcelize
+import org.threeten.bp.ZonedDateTime
 
 @Parcelize
 data class PostItemDomainModel(
 
     val sourceId: Int? = null,
 
-    val date: Int? = null,
+    val date: ZonedDateTime,
 
     val postId: Int? = null,
 

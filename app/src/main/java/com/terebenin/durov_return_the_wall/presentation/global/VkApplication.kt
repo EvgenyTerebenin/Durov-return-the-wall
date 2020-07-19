@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.jakewharton.threetenabp.AndroidThreeTen
 import com.terebenin.durov_return_the_wall.data.datasource.storage.Prefs
 
 class VkApplication : Application() {
@@ -23,6 +24,11 @@ class VkApplication : Application() {
         setContext(this)
         initGson()
         initSharedPreferences()
+        initAndroidThreeTen()
+    }
+
+    private fun initAndroidThreeTen() {
+        AndroidThreeTen.init(this)
     }
 
     private fun initSharedPreferences() {

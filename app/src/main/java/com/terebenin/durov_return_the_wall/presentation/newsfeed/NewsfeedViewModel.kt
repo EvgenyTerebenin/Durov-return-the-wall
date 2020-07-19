@@ -28,7 +28,7 @@ class NewsfeedViewModel : ViewModel(),
     }
 
 
-    public fun getNewsfeed() {
+    fun getNewsfeed() {
         job?.cancel()
         job = viewModelScope.launch {
             try {
@@ -41,7 +41,7 @@ class NewsfeedViewModel : ViewModel(),
             } catch (e: Exception) {
                 if (e is HttpException) {
                     eventHttpException.value = e
-                }
+                } else e.printStackTrace()
             }
         }
     }
