@@ -1,4 +1,4 @@
-https://app.bitrise.io/app/5dfa8314448c92f1/status.svg?token=1e1H8AgVZqgnkJ9ExhSSFA&branch=feature_newsfeed
+[![Build Status](https://app.bitrise.io/app/5dfa8314448c92f1/status.svg?token=1e1H8AgVZqgnkJ9ExhSSFA&branch=feature_newsfeed)](https://app.bitrise.io/app/5dfa8314448c92f1)
 
 Требуется написать клиент для социальной сети Вконтакте. 
 
