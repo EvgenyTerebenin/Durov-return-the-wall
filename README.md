@@ -1,3 +1,5 @@
+https://app.bitrise.io/app/5dfa8314448c92f1/status.svg?token=1e1H8AgVZqgnkJ9ExhSSFA&branch=feature_newsfeed
+
 Требуется написать клиент для социальной сети Вконтакте. 
 
 ## Необходимо сделать:
