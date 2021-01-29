@@ -44,7 +44,8 @@ fun createDomainPostItemModel(response: Response, item: Item?): PostItemDomainMo
         item?.likes,
         getProfileBySourceId(response.profiles, item?.sourceId),
         getGroupBySourceId(response.groups, item?.sourceId),
-        getPostAuthorType(item?.sourceId)
+        getPostAuthorType(item?.sourceId),
+        item?.attachments
     )
 }
 

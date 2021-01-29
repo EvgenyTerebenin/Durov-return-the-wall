@@ -1,8 +1,11 @@
 package com.terebenin.durov_return_the_wall.data.newsfeed.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 
+@Parcelize
 data class Video(
 
     @field:SerializedName("date")
@@ -64,4 +67,4 @@ data class Video(
 
     @field:SerializedName("views")
     val views: Int? = null
-)
+) : Parcelable

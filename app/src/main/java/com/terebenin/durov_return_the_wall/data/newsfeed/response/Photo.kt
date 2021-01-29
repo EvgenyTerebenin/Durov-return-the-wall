@@ -1,8 +1,10 @@
 package com.terebenin.durov_return_the_wall.data.newsfeed.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class Photo(
 
     @field:SerializedName("date")
@@ -28,4 +30,4 @@ data class Photo(
 
     @field:SerializedName("text")
     val text: String? = null
-)
+): Parcelable

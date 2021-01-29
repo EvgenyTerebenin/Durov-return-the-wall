@@ -1,6 +1,7 @@
 package com.terebenin.durov_return_the_wall.domain.newsfeed.model
 
 import android.os.Parcelable
+import com.terebenin.durov_return_the_wall.data.newsfeed.response.Attachments
 import com.terebenin.durov_return_the_wall.data.newsfeed.response.Likes
 import com.terebenin.durov_return_the_wall.data.newsfeed.response.Views
 import kotlinx.android.parcel.Parcelize
@@ -25,5 +26,7 @@ data class PostItemDomainModel(
 
     val group: GroupDomainModel? = null,
 
-    val postType: PostAuthorType? = null
+    val postType: PostAuthorType? = null,
+
+    val attachments: List<Attachments?>?
 ) : Parcelable
