@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="@+id/text_view_post_text"
-                app:layout_constraintTop_toBottomOf="@+id/text_view_post_text"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_post_images"
                 app:srcCompat="@drawable/ic_outline_remove_red_eye_16" />
 
             <ImageView
@@ -101,6 +101,25 @@
                 app:layout_constraintBottom_toBottomOf="@+id/image_view_post_likes"
                 app:layout_constraintEnd_toEndOf="@+id/text_view_post_text"
                 app:layout_constraintTop_toTopOf="@+id/image_view_post_likes" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_post_images"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_post_text" />
+
+            <TextView
+                android:id="@+id/text_view_images_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_view_post_images" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>
