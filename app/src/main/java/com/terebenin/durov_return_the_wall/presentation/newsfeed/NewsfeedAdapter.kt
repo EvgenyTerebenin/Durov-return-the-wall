@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.terebenin.durov_return_the_wall.R
+import com.terebenin.durov_return_the_wall.data.newsfeed.response.Attachments
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
 import com.terebenin.durov_return_the_wall.domain.global.toDateTimeString
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostAuthorType
@@ -41,6 +42,14 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
 //        setDate()
         holder.itemView.text_view_post_date.text =
             holder.binding.item?.date!!.toDateTimeString()
+        holder.binding.item?.attachments?.let {
+            holder.itemView.text_view_images_count.text =
+                context.resources.getString(
+                    R.string.text_how_many_photos_in_post(
+                        getAttachedPhotos(it).size.toString()
+                    )
+                )
+        }
     }
 
     private fun loadAvatar(holder: NewsfeedViewHolder) {
@@ -82,6 +91,17 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         }
     }
 
+    private fun getAttachedPhotos(attachments: List<Attachments?>): List<Attachments> {
+        val photos = mutableListOf<Attachments>()
+
+        for (i in attachments) {
+            if (i?.type == "photo") {
+                photos.add(i)
+            }
+        }
+        return photos
+    }
+
     class NewsfeedViewHolder(
         val binding: ItemNewsfeedBinding,
         private val viewModel: NewsfeedViewModel
@@ -93,6 +113,7 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         }
 
     }
+
 
     class DiffCallback : DiffUtil.ItemCallback<PostItemDomainModel>() {
         override fun areItemsTheSame(

@@ -30,4 +30,4 @@ data class Photo(
 
     @field:SerializedName("text")
     val text: String? = null
-): Parcelable
+) : Parcelable
