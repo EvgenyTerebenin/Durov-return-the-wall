@@ -39,7 +39,6 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         context = holder.binding.textViewPostOwner.context
         holder.itemView.text_view_post_owner.text = getPostOwnerName(holder.binding.item)
         loadAvatar(holder)
-//        setDate()
         holder.itemView.text_view_post_date.text =
             holder.binding.item?.date!!.toDateTimeString()
         holder.binding.item?.attachments?.let {
@@ -58,7 +57,6 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
             .load(getAvatarUrl(holder.binding.item))
             .centerCrop()
             .transform(RoundedCorners(imageViewDoubleHeight))
-            //            .placeholder()
             .into(holder.itemView.image_view_post_owner_avatar)
     }
 
