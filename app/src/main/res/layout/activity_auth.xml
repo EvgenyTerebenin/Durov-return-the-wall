@@ -5,7 +5,7 @@
 
         <variable
             name="authViewModel"
-            type="com.terebenin.durov_return_the_wall.presentation.mvvm.auth.AuthViewModel" />
+            type="com.terebenin.durov_return_the_wall.presentation.auth.AuthViewModel" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

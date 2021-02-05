@@ -2,4 +2,6 @@
     <string name="app_name">Дуров, верни стену</string>
     <string name="title_authorization">Авторизация</string>
     <string name="title_feed">Новости</string>
+    <string name="text_user_name">%1$s %2$s</string>
+    <string name="text_how_many_photos_in_post">В посте %1$d изображений. Нажмите, чтобы посмотреть</string>
 </resources>

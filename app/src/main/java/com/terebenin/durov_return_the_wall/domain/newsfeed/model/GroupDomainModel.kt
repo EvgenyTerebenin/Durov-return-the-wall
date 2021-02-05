@@ -1,0 +1,11 @@
+package com.terebenin.durov_return_the_wall.domain.newsfeed.model
+
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class GroupDomainModel(
+    val id: Int? = null,
+    val name: String? = null,
+    val photo100: String? = null
+) : Parcelable

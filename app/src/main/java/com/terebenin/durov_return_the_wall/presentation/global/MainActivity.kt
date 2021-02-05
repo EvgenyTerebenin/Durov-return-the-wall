@@ -1,10 +1,11 @@
-package com.terebenin.durov_return_the_wall.presentation.ui.main
+package com.terebenin.durov_return_the_wall.presentation.global
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.terebenin.durov_return_the_wall.R
-import com.terebenin.durov_return_the_wall.presentation.ui.global.VkApplication.Companion.prefs
+import com.terebenin.durov_return_the_wall.presentation.global.VkApplication.Companion.prefs
+import com.terebenin.durov_return_the_wall.presentation.newsfeed.NewsfeedFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,12 +16,15 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.container,
-                    MainFragment.newInstance()
+                    NewsfeedFragment.newInstance()
                 )
                 .commitNow()
         }
 
-        Toast.makeText(this, prefs.accessToken.token, Toast.LENGTH_SHORT).show()
+        //FIXME удалить код перед релизом
+        if (com.terebenin.durov_return_the_wall.BuildConfig.DEBUG) {
+            Toast.makeText(this, prefs.accessToken.token, Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

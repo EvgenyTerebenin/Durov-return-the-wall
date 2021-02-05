@@ -1,4 +1,4 @@
-package com.terebenin.durov_return_the_wall.presentation.ui.auth
+package com.terebenin.durov_return_the_wall.presentation.auth
 
 import android.content.Intent
 import android.os.Build
@@ -8,18 +8,18 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.databinding.ActivityAuthBinding
-import com.terebenin.durov_return_the_wall.presentation.mvvm.auth.AuthViewModel
-import com.terebenin.durov_return_the_wall.presentation.ui.main.MainActivity
+import com.terebenin.durov_return_the_wall.presentation.global.MainActivity
 
 class AuthActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthBinding
+    private val viewModel: AuthViewModel by viewModels()
     private val ACCESS_TOKEN = "access_token"
     private val ERROR = "error"
     private val ERROR_DESCRIPTION = "error_description"
@@ -27,9 +27,10 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
-        binding.lifecycleOwner = this
-        val viewModel: AuthViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
-        binding.authViewModel = viewModel
+        binding.apply {
+            lifecycleOwner = this@AuthActivity
+            authViewModel = viewModel
+        }
         observeViewModelChanges()
         setupWebView()
         binding.webView.loadUrl(viewModel.authUrl)
@@ -39,7 +40,7 @@ class AuthActivity : AppCompatActivity() {
     private fun setupWebView() {
         setWebViewClient()
         setWebSettings(binding.webView.settings)
-        clearWebViewBeforeLoading(binding)
+        clearWebViewBeforeLoading(binding.webView)
     }
 
     private fun setWebViewClient() {
@@ -79,16 +80,20 @@ class AuthActivity : AppCompatActivity() {
         })
     }
 
-    private fun clearWebViewBeforeLoading(binding: ActivityAuthBinding) {
-        binding.webView.clearHistory()
-        binding.webView.clearFormData()
-        binding.webView.clearCache(true)
+    private fun clearWebViewBeforeLoading(webView: WebView) {
+        webView.apply {
+            clearHistory()
+            clearFormData()
+            clearCache(true)
+        }
     }
 
     private fun setWebSettings(webSettings: WebSettings) {
-        webSettings.cacheMode = WebSettings.LOAD_NO_CACHE
-        webSettings.domStorageEnabled = true
-        webSettings.setSupportZoom(true)
-        webSettings.javaScriptCanOpenWindowsAutomatically = true
+        webSettings.apply {
+            cacheMode = WebSettings.LOAD_NO_CACHE
+            domStorageEnabled = true
+            setSupportZoom(true)
+            javaScriptCanOpenWindowsAutomatically = true
+        }
     }
 }
