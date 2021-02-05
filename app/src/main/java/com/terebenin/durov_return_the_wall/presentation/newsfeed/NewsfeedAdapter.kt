@@ -43,11 +43,10 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         holder.itemView.text_view_post_date.text =
             holder.binding.item?.date!!.toDateTimeString()
         holder.binding.item?.attachments?.let {
+            val attachmentsSize = getAttachedPhotos(it).size
             holder.itemView.text_view_images_count.text =
                 context.resources.getString(
-                    R.string.text_how_many_photos_in_post(
-                        getAttachedPhotos(it).size.toString()
-                    )
+                    R.string.text_how_many_photos_in_post, attachmentsSize
                 )
         }
     }
