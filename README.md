@@ -1,5 +1,9 @@
 [![Build Status](https://app.bitrise.io/app/5dfa8314448c92f1/status.svg?token=1e1H8AgVZqgnkJ9ExhSSFA&branch=feature_newsfeed)](https://app.bitrise.io/app/5dfa8314448c92f1)
 
+ Клиент для "Вконтакте"
+ 
+<img src="https://user-images.githubusercontent.com/17678440/110119787-52737c80-7dcd-11eb-8ad6-83513ba2e0a7.png" width="40%"></img> <img src="https://user-images.githubusercontent.com/17678440/110119794-54d5d680-7dcd-11eb-85f2-d686ee17e8af.png" width="40%"></img>
+
 Требуется написать клиент для социальной сети Вконтакте. 
 
 ## Необходимо сделать:
