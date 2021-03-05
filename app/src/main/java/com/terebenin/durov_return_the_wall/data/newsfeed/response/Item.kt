@@ -9,7 +9,7 @@ data class Item(
     val date: Long? = null,
 
     @field:SerializedName("attachments")
-    val attachments: List<Attachments?>? = null,
+    var attachments: List<Attachments?>? = null,
 
     @field:SerializedName("comments")
     val comments: Comments? = null,
