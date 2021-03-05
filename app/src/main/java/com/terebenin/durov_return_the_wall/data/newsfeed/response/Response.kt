@@ -28,10 +28,32 @@ internal fun Response.toDomainModel(): NewsfeedResponseDomainModel {
     var domainItems: MutableList<PostItemDomainModel> = mutableListOf()
     items?.let {
         for (item in items) {
-            domainItems.add(createDomainPostItemModel(this, item))
+            item?.attachments?.let {
+                if (findOnlyPhotoAttachments(item).isNotEmpty()) {
+                    item.attachments = findOnlyPhotoAttachments(item)
+                    domainItems.add(
+                        createDomainPostItemModel(
+                            this,
+                            item
+                        )
+                    )
+                }
+            }
         }
     }
     return NewsfeedResponseDomainModel(domainItems)
+}
+
+private fun findOnlyPhotoAttachments(
+    item: Item
+): MutableList<Attachments> {
+    val attachedPhotos = mutableListOf<Attachments>()
+    for (i in item.attachments!!) {
+        if (i?.type == "photo") {
+            attachedPhotos.add(i)
+        }
+    }
+    return attachedPhotos
 }
 
 fun createDomainPostItemModel(response: Response, item: Item?): PostItemDomainModel {

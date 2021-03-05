@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.terebenin.durov_return_the_wall.R
-import com.terebenin.durov_return_the_wall.data.newsfeed.response.Attachments
 import com.terebenin.durov_return_the_wall.databinding.ItemNewsfeedBinding
 import com.terebenin.durov_return_the_wall.domain.global.toDateTimeString
 import com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostAuthorType
@@ -41,13 +40,20 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
         loadAvatar(holder)
         holder.itemView.text_view_post_date.text =
             holder.binding.item?.date!!.toDateTimeString()
-        holder.binding.item?.attachments?.let {
-            val attachmentsSize = getAttachedPhotos(it).size
-            holder.itemView.text_view_images_count.text =
-                context.resources.getString(
-                    R.string.text_how_many_photos_in_post, attachmentsSize
-                )
-        }
+
+        holder.itemView.text_view_images_count.text =
+            setTextAboutAttachedPhotos(holder.binding.item?.attachments!!.size)
+    }
+
+    private fun setTextAboutAttachedPhotos(attachPhotosCount: Int): String {
+        return context.resources.getString(
+            R.string.text_how_many_photos_in_post,
+            context.resources.getQuantityString(
+                R.plurals.images,
+                attachPhotosCount,
+                attachPhotosCount
+            )
+        )
     }
 
     private fun loadAvatar(holder: NewsfeedViewHolder) {
@@ -86,17 +92,6 @@ class NewsfeedAdapter(private val viewModel: NewsfeedViewModel) :
             }
             null -> ""
         }
-    }
-
-    private fun getAttachedPhotos(attachments: List<Attachments?>): List<Attachments> {
-        val photos = mutableListOf<Attachments>()
-
-        for (i in attachments) {
-            if (i?.type == "photo") {
-                photos.add(i)
-            }
-        }
-        return photos
     }
 
     class NewsfeedViewHolder(
