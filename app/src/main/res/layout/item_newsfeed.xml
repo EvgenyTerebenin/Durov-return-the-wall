@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.terebenin.durov_return_the_wall.domain.newsfeed.model.PostItemDomainModel" />
+
+        <variable
+            name="eventHandler"
+            type="com.terebenin.durov_return_the_wall.presentation.newsfeed.NewsfeedEventHandler" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:onClick="@{()-> eventHandler.onClickNewsfeedItem(item)}"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/image_view_post_owner_avatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/text_view_post_owner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:hint="Автор поста"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_view_post_owner_avatar"
+                app:layout_constraintTop_toTopOf="@+id/image_view_post_owner_avatar" />
+
+            <TextView
+                android:id="@+id/text_view_post_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="Дата поста"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/text_view_post_owner"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_post_owner" />
+
+            <TextView
+                android:id="@+id/text_view_post_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
+                android:maxLines="10"
+                android:text="@{item.text}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_view_post_owner_avatar" />
+
+            <ImageView
+                android:id="@+id/image_view_post_views"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="@+id/text_view_post_text"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_images_count"
+                app:srcCompat="@drawable/ic_outline_remove_red_eye_16" />
+
+            <ImageView
+                android:id="@+id/image_view_post_likes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="2dp"
+                app:layout_constraintEnd_toStartOf="@+id/text_view_likes_count"
+                app:layout_constraintTop_toTopOf="@+id/image_view_post_views"
+                app:srcCompat="@drawable/ic_outline_favorite_border_24" />
+
+            <TextView
+                android:id="@+id/text_view_post_views_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:text="@{item.views.count.toString()}"
+                app:layout_constraintBottom_toBottomOf="@+id/image_view_post_views"
+                app:layout_constraintStart_toEndOf="@+id/image_view_post_views"
+                app:layout_constraintTop_toTopOf="@+id/image_view_post_views" />
+
+            <TextView
+                android:id="@+id/text_view_likes_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{item.likes.count.toString()}"
+                app:layout_constraintBottom_toBottomOf="@+id/image_view_post_likes"
+                app:layout_constraintEnd_toEndOf="@+id/text_view_post_text"
+                app:layout_constraintTop_toTopOf="@+id/image_view_post_likes" />
+
+            <TextView
+                android:id="@+id/text_view_images_count"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_post_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
