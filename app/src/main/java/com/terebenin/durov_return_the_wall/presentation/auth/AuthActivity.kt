@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer
 import com.terebenin.durov_return_the_wall.R
 import com.terebenin.durov_return_the_wall.databinding.ActivityAuthBinding
 import com.terebenin.durov_return_the_wall.presentation.global.MainActivity
+import com.terebenin.durov_return_the_wall.presentation.global.VkApplication
 
 class AuthActivity : AppCompatActivity() {
 
@@ -27,6 +28,7 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
+        VkApplication.appComponent.injectsAuthActivity(this)
         binding.apply {
             lifecycleOwner = this@AuthActivity
             authViewModel = viewModel
