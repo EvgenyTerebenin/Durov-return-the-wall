@@ -7,7 +7,7 @@ import dagger.Component
 /**
  * Created by evgenyterebenin at 23.03.2021
  */
-@Component(modules = [AuthModule::class, NewsfeedModule::class])
+@Component(modules = [NewsfeedModule::class])
 interface AppComponent {
 
     fun injectsAuthActivity(authActivity: AuthActivity)
