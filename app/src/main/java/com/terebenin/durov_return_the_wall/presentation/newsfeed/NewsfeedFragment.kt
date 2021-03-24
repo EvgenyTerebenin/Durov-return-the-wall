@@ -11,7 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.terebenin.durov_return_the_wall.R
+import com.terebenin.durov_return_the_wall.data.datasource.network.VkApiFactory
+import com.terebenin.durov_return_the_wall.data.newsfeed.NewsfeedRepositoryImpl
 import com.terebenin.durov_return_the_wall.databinding.MainFragmentBinding
+import com.terebenin.durov_return_the_wall.domain.newsfeed.NewsfeedInteractor
 
 class NewsfeedFragment : Fragment() {
 
@@ -22,7 +25,10 @@ class NewsfeedFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
     private lateinit var newsfeedAdapter: NewsfeedAdapter
+
     private val viewModel: NewsfeedViewModel by viewModels()
+    private val repository = NewsfeedRepositoryImpl(VkApiFactory.vkApi)
+    private val interactor = NewsfeedInteractor(repository)
 
 
     override fun onCreateView(

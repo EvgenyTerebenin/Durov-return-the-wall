@@ -11,7 +11,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class NewsfeedViewModel : ViewModel(),
+class NewsfeedViewModel(interactor: NewsfeedInteractor) : ViewModel(),
     NewsfeedEventHandler {
     private val interactor = NewsfeedInteractor()
     val itemClickEvent =
